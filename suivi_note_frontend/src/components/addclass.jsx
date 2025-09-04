@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AddClasse } from "../features/classSlice";
 
@@ -52,7 +52,7 @@ function Addclass(){
               />
               <input
                 type="number"
-                placeholder="Semaines par cycle"
+                placeholder="Nombre de semaines par cycle"
                 value={Nsemaine}
                 onChange={(e) => setSemaine(e.target.value)}
                 className="w-full px-3 py-2 mb-3 border rounded-md"

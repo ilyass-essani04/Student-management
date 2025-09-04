@@ -14,18 +14,18 @@ const ClassSlice = createSlice({
         AddClasse:(state, action)=>{ 
             const {name,Ncycle,Nsemaine} = action.payload
             state.list.push({id: Date.now(),name,Ncycle,Nsemaine})
-            console.log({name,Ncycle,Nsemaine})
+            console.log(Date.now())
         }, 
         RemoveClass:(state, action)=>{
             state.list = state.list.filter((classe) => classe.id !== action.payload )
         },
         EditClass:(state, action)=>{
-            const {id ,nom ,Ncycle ,Nsemaine} = action.payload;
-            const classe = state.list.find((classe)=>classe.id === id );
+            const {id ,name ,Ncycle ,Nsemaine} = action.payload;
+            const classe = state.list.find((classe) => classe.id === id );
 
             if(classe){
                 classe.id = id; // Update ..
-                classe.name = nom;
+                classe.name = name;
                 classe.Ncycle = Ncycle;
                 classe.Nsemaine = Nsemaine;
             }

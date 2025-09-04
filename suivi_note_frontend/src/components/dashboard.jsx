@@ -10,7 +10,7 @@ function Dashboard() {
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-md">
-        <div className="p-6 font-bold text-purple-700 text-2xl">HOME</div>
+        <div className="p-4 font-bold text-purple-700 text-2xl"><img src="https://d3jmn01ri1fzgl.cloudfront.net/photoadking/webp_original/purple-monster-education-logo-design-template-7z0ho7a870e95a.webp" alt="logo" width={55} /></div>
         <nav className="mt-8">
         <Link to="/dashboard" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Accueil</Link>
         <Link to="/dashboard/classes" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Classes</Link>

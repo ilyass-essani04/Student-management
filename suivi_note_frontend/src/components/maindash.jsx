@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { AddClasse } from "../features/classSlice";
 
 
 function Maindash(){
