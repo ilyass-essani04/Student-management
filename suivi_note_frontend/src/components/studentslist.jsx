@@ -10,7 +10,7 @@ function Studentlist(){
     return(
 <div class="text-gray-900 bg-gray-200">
     <div class="p-4 flex justify-between">
-        <h1 class="text-3xl">Eleves</h1>
+        <h1 class="text-3xl">La classe :<strong> </strong></h1>
         <Link to={'/dashboard/addstudent'}>
             <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Ajouter un eleve</button>
         </Link>

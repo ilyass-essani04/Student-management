@@ -12,10 +12,10 @@ const StudentSlice = createSlice({
       },
     reducers :{
         AddStudents:(state, action)=>{ 
-            const nom = action.payload
-            state.liste.push({id: Date.now(), nom})
+            const {nom, classId} = action.payload
+            state.liste.push({id: Date.now(), nom, classId})
             // console.log(state.liste)
-        }, 
+        },
         RemoveStudent:(state, action)=>{
             state.liste = state.liste.filter((student) => student.id !== action.payload )
         },

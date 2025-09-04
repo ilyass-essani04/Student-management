@@ -40,7 +40,7 @@ function Editclasse() {
   };
 
   if (!classe) {
-    return <p>class not found</p>;
+    return <p>classe non trouve</p>;
   }
 
   return (
