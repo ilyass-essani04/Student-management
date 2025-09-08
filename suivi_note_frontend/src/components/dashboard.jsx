@@ -35,7 +35,7 @@ function Dashboard() {
         <Outlet />
     
           <footer className="bg-white p-4 mt-10 text-center text-sm text-gray-400 border-t">
-            © 2025 AdminPanel. All rights reserved.
+            © 2025 Student management. All rights reserved.
           </footer>
       </div>
     </div>

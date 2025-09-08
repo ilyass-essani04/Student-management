@@ -9,6 +9,7 @@ import Addclass from "./components/addclass"
 import Studentlist from "./components/studentslist"
 import Addstudent from "./components/addstudent"
 import Editclasse from "./components/editclasse"
+import { EditStudent } from "./features/studentSlice"
 
 
 
@@ -29,8 +30,9 @@ function App() {
             <Route path="classes" element={<Classes />} />
             <Route path="addclass" element={<Addclass />} />
             <Route path="editclass/:id" element={<Editclasse />} />
-            <Route path="studentlist" element={<Studentlist />} />
-            <Route path="addstudent" element={<Addstudent />} />
+            <Route path="studentlist/:id" element={<Studentlist />} />
+            <Route path="addstudent/:classId" element={<Addstudent />} />
+            <Route path="editstudent/:id" element={<EditStudent />} />
             {/* <Route path="users" element={<Users />} /> */}
         </Route>
 
