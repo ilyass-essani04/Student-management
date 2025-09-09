@@ -15,7 +15,7 @@ function Dashboard() {
         <Link to="/dashboard" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Accueil</Link>
         <Link to="/dashboard/classes" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Classes</Link>
         <Link to="/dashboard/profile" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Profile</Link>
-        <Link to="/dashboard/users" className="block py-3 px-6 text-gray-700 hover:bg-purple-100">Logout</Link>
+        <Link to="/dashboard/users" className="block py-3 px-6 hover:bg-purple-100 text-red-600">Logout</Link>
         </nav>
       </aside>
 

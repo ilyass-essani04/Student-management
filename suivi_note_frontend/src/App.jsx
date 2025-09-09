@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router"
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router"
 import Login from "./components/login"
 import SignUp from "./components/SignUp"
 import Dashboard from "./components/dashboard"
@@ -9,7 +9,8 @@ import Addclass from "./components/addclass"
 import Studentlist from "./components/studentslist"
 import Addstudent from "./components/addstudent"
 import Editclasse from "./components/editclasse"
-import { EditStudent } from "./features/studentSlice"
+import EditStudents from "./components/editstudents"
+
 
 
 
@@ -30,12 +31,14 @@ function App() {
             <Route path="classes" element={<Classes />} />
             <Route path="addclass" element={<Addclass />} />
             <Route path="editclass/:id" element={<Editclasse />} />
-            <Route path="studentlist/:id" element={<Studentlist />} />
-            <Route path="addstudent/:classId" element={<Addstudent />} />
-            <Route path="editstudent/:id" element={<EditStudent />} />
+            <Route path="studentlist/:id" element={<Studentlist />} /> 
+            <Route path="addstudent/:classId" element={<Addstudent />} /> 
+            <Route path="editstudent/:id" element={<EditStudents />} /> 
             {/* <Route path="users" element={<Users />} /> */}
         </Route>
 
+        {/* Catch-all route */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
 
 

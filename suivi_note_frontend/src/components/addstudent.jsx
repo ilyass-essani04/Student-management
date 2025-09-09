@@ -5,7 +5,7 @@ import { AddStudents } from "../features/studentSlice";
 
 function Addstudent() {
   const { classId: paramClassId } = useParams(); // Get classId from URL if it exists
-  const [nom, setNom] = useState("");
+  const [name, setName] = useState("");
   const [classId, setClassId] = useState(paramClassId || ""); // Preselect if param exists
 
   const classes = useSelector((state) => state.classes.list);
@@ -20,11 +20,14 @@ function Addstudent() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (nom.trim()) {
-      dispatch(AddStudents({ nom, classId }));
-      setNom("");
+    if (name.trim()) {
+      dispatch(AddStudents({ 
+        name, 
+        classId: Number(classId) 
+      }));
+      setName("");
       navigate(`/dashboard/studentlist/${classId}`);
-      alert(`L'élève ${nom} a été ajouté avec succès`);
+      alert(`L'élève ${name} a été ajouté avec succès`);
     }
   };
 
@@ -44,19 +47,19 @@ function Addstudent() {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Nom complet de l'élève"
-              value={nom}
-              onChange={(e) => setNom(e.target.value)}
+              placeholder="nom complet de l'élève"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-3 py-2 mb-3 border rounded-md"
               required
             />
             <select
               value={classId}
-              onChange={(e) => setClassId(e.target.value)}
+              onChange={(e) => setClassId(Number(e.target.value))}
               required
               className="w-full border px-4 py-2 mb-3 rounded"
             >
-              <option value="">Sélectionner une autre classe</option>
+              <option value="">Sélectionner une classe</option>
               {classes.map((cls) => (
                 <option key={cls.id} value={cls.id}>
                   {cls.name}
@@ -109,7 +112,7 @@ export default Addstudent;
 
 // function Addstudent(){
 //     // const [showModal, setShowModal] = useState(false);
-//     const [nom, setNom] = useState("");
+//     const [name, setName] = useState("");
 //     const [classId, setClassId] = useState("");
 //     const classes = useSelector((state)=>state.classes.list);
     
@@ -118,12 +121,12 @@ export default Addstudent;
   
 //     const handleSubmit = (e) => {
 //       e.preventDefault();
-//       if(nom.trim()){
+//       if(name.trim()){
 //         dispatch(AddStudents({
-//           nom,
+//           name,
 //           classId
 //         }));
-//         setNom('');
+//         setName('');
 //         navigate(`/dashboard/studentlist/${classId}`) //redirect to student list after adding
 //         alert("L'éleve a été ajouté avec succès à la classe choisi") //add class name at last later
 //       }
@@ -144,9 +147,9 @@ export default Addstudent;
 //             <form onSubmit={handleSubmit}>
 //               <input
 //                 type="text"
-//                 placeholder="Nom complet d'eleve"
-//                 value={nom}
-//                 onChange={(e) => setNom(e.target.value)}
+//                 placeholder="name complet d'eleve"
+//                 value={name}
+//                 onChange={(e) => setName(e.target.value)}
 //                 className="w-full px-3 py-2 mb-3 border rounded-md"
 //                 required
 //               />
