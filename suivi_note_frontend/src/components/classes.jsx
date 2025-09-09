@@ -6,7 +6,9 @@ import { RemoveClass } from "../features/classSlice";
 
 function Classes(){
 
-    const classes = useSelector((state)=>state.classes.list)
+    const classes = useSelector((state)=>state.classes.list) //get classes 
+    const students = useSelector((state)=>state.students.liste); //get students
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -42,10 +44,16 @@ function Classes(){
                         <td colSpan="4" className="text-center py-10 text-gray-500">Aucune classe trouvée, ajouter une classe</td>
                     </tr>
                     ) : (
-                classes.map((classe)=>(
+                classes.map((classe)=>{                    
+                    // Count N of students that belong to this class
+                    const Nstudents = students.filter((student)=>
+                        student.classId === classe.id
+                    ).length;
+
+                    return(
                     <tr key={classe.id} onClick={()=>{navigate(`/dashboard/studentlist/${classe.id}`)}} class="border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
                         <td class="py-3 px-6 text-left">{classe.name}</td>
-                        <td class="py-3 px-6 text-left">28</td>
+                        <td class="py-3 px-6 text-left">{Nstudents}</td>
                         <td class="py-3 px-6 text-left">{classe.Ncycle}</td>
                         <td class="py-3 px-6 text-left">{classe.Nsemaine}</td>
                         <td class="py-3 px-6 text-center">
@@ -81,7 +89,9 @@ function Classes(){
                         </td>
                                        
                     </tr>
-                )))}                  
+                )
+                })
+                )}                  
                 </tbody>
             </table>
         </div>

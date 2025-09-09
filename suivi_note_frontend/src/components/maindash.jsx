@@ -2,8 +2,11 @@ import { useSelector } from "react-redux";
 
 
 function Maindash(){
-  const classes = useSelector((state)=>state.classes.list)
+  const classes = useSelector((state)=>state.classes.list);
   const Nclasses = classes.length;
+
+  const students = useSelector((state)=>state.students.liste);
+  const Nstudents = students.length;
 
     return(
         <main className="p-6 space-y-6">
@@ -14,7 +17,7 @@ function Maindash(){
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <p className="text-sm text-gray-500">Total des eleves</p>
-              <h2 className="text-3xl font-bold text-blue-600 mt-2">0</h2>
+              <h2 className="text-3xl font-bold text-blue-600 mt-2">{Nstudents}</h2>
             </div>
             {/* <div className="bg-white p-10 rounded-lg shadow-md"> */}
               {/* <p className="text-sm text-gray-500">les classes</p> */}
