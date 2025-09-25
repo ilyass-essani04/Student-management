@@ -58,7 +58,7 @@ function Studentlist(){
                     ) : (
                 students.map((student)=>(
                     // const className = classes.find((cls) => cls.id === student.classId)?.name || "N/A";
-                <tr key={student.id} class="border-b hover:bg-orange-100 bg-gray-100 cursor-pointer">
+                <tr key={student.id} onClick={()=>{navigate(`dashboard/studenttable`)}} class="border-b hover:bg-orange-100 bg-gray-100 cursor-pointer">
                     <td class="p-3 px-5">
                         {student.name}
                     </td>

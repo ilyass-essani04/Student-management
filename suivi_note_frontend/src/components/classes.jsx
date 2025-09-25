@@ -58,7 +58,7 @@ function Classes(){
                         <td class="py-3 px-6 text-left">{classe.Nsemaine}</td>
                         <td class="py-3 px-6 text-center">
                             <div  class="flex item-center justify-center">
-                                <button class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110 cursor-pointer" onClick={(e)=>{
+                                <button title="modifier" class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110 cursor-pointer" onClick={(e)=>{
                                     e.stopPropagation();
                                     navigate(`/dashboard/editclass/${classe.id}`)
                                 }}>
@@ -66,7 +66,7 @@ function Classes(){
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                         </svg>
                                 </button>
-                                <button onClick={(e)=>{
+                                <button title="supprimer" onClick={(e)=>{
                                     e.stopPropagation();
                                     dispatch(RemoveClass(classe.id))
                                 }} class="w-4 mr-2 transform hover:text-red-500 hover:scale-110 cursor-pointer">
@@ -74,7 +74,7 @@ function Classes(){
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>
                                 </button>
-                                <button onClick={(e)=>{
+                                <button title="voir" onClick={(e)=>{
                                         e.stopPropagation();
                                         navigate(`/dashboard/studentlist/${classe.id}`);
                                     }}  class="w-4 mr-2 transform hover:text-green-500 hover:scale-110 cursor-pointer">
@@ -83,7 +83,7 @@ function Classes(){
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
+                                    </svg>
                                 </button>
                             </div>
                         </td>

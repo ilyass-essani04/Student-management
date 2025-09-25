@@ -12,7 +12,7 @@ const StudentSlice = createSlice({
       },
     reducers :{
         AddStudents:(state, action)=>{ 
-            const {name, classId} = action.payload
+            const {name, classId, Ncycle, Nsemaine} = action.payload
             state.liste.push({id: Date.now(), name, classId})
             // console.log(state.liste)
         },

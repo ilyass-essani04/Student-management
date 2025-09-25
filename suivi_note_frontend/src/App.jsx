@@ -33,7 +33,8 @@ function App() {
             <Route path="editclass/:id" element={<Editclasse />} />
             <Route path="studentlist/:id" element={<Studentlist />} /> 
             <Route path="addstudent/:classId" element={<Addstudent />} /> 
-            <Route path="editstudent/:id" element={<EditStudents />} /> 
+            <Route path="editstudent/:id" element={<EditStudents />} />
+            <Route path="studenttable" />
             {/* <Route path="users" element={<Users />} /> */}
         </Route>
 

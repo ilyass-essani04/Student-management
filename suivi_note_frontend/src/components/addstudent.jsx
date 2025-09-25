@@ -4,26 +4,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AddStudents } from "../features/studentSlice";
 
 function Addstudent() {
-  const { classId: paramClassId } = useParams(); // Get classId from URL if it exists
-  const [name, setName] = useState("");
-  const [classId, setClassId] = useState(paramClassId || ""); // Preselect if param exists
-
-  const classes = useSelector((state) => state.classes.list);
+  const { classId } = useParams(); // Get classId from URL if it exists
+  
+  const classe = useSelector((state) =>
+    state.classes.list.find((c) => c.id === parseInt(classId))
+  );
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (paramClassId) {
-      setClassId(paramClassId); // pre-select class
-    }
-  }, [paramClassId]);
+  
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim()) {
       dispatch(AddStudents({ 
         name, 
-        classId: Number(classId) 
+        classId: Number(classId),
+        Ncycle: classe?.Ncycle,
+        Nsemaine: classe?.Nsemaine
       }));
       setName("");
       navigate(`/dashboard/studentlist/${classId}`);
@@ -53,19 +51,9 @@ function Addstudent() {
               className="w-full px-3 py-2 mb-3 border rounded-md"
               required
             />
-            <select
-              value={classId}
-              onChange={(e) => setClassId(Number(e.target.value))}
-              required
-              className="w-full border px-4 py-2 mb-3 rounded"
-            >
-              <option value="">Sélectionner une classe</option>
-              {classes.map((cls) => (
-                <option key={cls.id} value={cls.id}>
-                  {cls.name}
-                </option>
-              ))}
-            </select>
+            <p className="mb-4">
+              Classe: <strong>{classe?.name}</strong>
+            </p>
             <div className="flex justify-end gap-2">
               <button onClick={handleAnnuler} type="button" className="px-4 py-2 bg-gray-300 rounded-md"> Annuler</button>
               <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">Ajouter</button>

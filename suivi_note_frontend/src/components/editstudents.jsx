@@ -14,7 +14,9 @@ const EditStudents = () => {
     state.students.liste.find((stu) => stu.id === parseInt(id))
   );
 
-  const classes = useSelector((state) => state.classes.list)
+  const classe = useSelector((state)=>
+    state.classes.list.find((c)=> c.id === student?.classId )
+  )
 
   // State for form fields
   const [name, setName] = useState("");
@@ -60,19 +62,9 @@ const EditStudents = () => {
             className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300 mb-3"
             required
           />
-          <select
-              value={classId}
-              onChange={(e) => setClassId(Number(e.target.value))}
-              required
-              className="w-full border px-4 py-2 mb-3 rounded"
-            >
-              <option value="">Sélectionner une autre classe</option>
-              {classes.map((cls) => (
-                <option key={cls.id} value={cls.id}>
-                  {cls.name}
-                </option>
-              ))}
-            </select>
+          <p className="mb-4">
+          Classe: <strong>{classe?.name}</strong>
+          </p>
         </div>
         <div className="flex justify-between">
           <button

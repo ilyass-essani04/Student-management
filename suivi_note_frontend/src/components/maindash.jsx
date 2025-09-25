@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 
 function Maindash(){
+  const navigate = useNavigate();
+
   const classes = useSelector((state)=>state.classes.list);
   const Nclasses = classes.length;
 
   const students = useSelector((state)=>state.students.liste);
   const Nstudents = students.length;
+
 
     return(
         <main className="p-6 space-y-6">
@@ -21,14 +25,14 @@ function Maindash(){
             </div>
             {/* <div className="bg-white p-10 rounded-lg shadow-md"> */}
               {/* <p className="text-sm text-gray-500">les classes</p> */}
-              <button className="bg-green-600 text-white py-3 rounded-lg shadow hover:bg-green-700">Ajouter une classe</button>
+              <button onClick={()=>{navigate("/dashboard/addclass")}} className="bg-green-600 text-white py-3 rounded-lg shadow hover:bg-green-700">Ajouter une classe</button>
               {/* <h2 className="text-3xl font-bold text-blue-600 mt-2">320</h2> */}
             {/* </div> */}
             {/* <div className="bg-white p-6 rounded-lg shadow-md"> */}
               {/* <p className="text-sm text-gray-500">Pending Tickets</p> */}
-            <button className="bg-red-600 text-white py-3 rounded-lg shadow hover:bg-red-700">Supprimer Une classe</button>
+            <button onClick={()=>{navigate("/dashboard/classes")}} className="bg-red-600 text-white py-3 rounded-lg shadow hover:bg-red-700">Supprimer Une classe</button>
               {/* <h2 className="text-3xl font-bold text-red-500 mt-2">12</h2> */}
-            {/* </div> */}
+            {/* </div> */}  
           </div>
 
 
@@ -94,10 +98,10 @@ function Maindash(){
           </div> */}
 
           <div className="bg-white p-6 rounded-lg shadow-md grid grid-cols-2 md:grid-cols-4 gap-4">
-            <button className="bg-purple-600 text-white py-3 rounded-lg shadow hover:bg-purple-700">Add classes</button>
-            <button className="bg-blue-600 text-white py-3 rounded-lg shadow hover:bg-blue-700">Export Data</button>
-            <button className="bg-green-600 text-white py-3 rounded-lg shadow hover:bg-green-700">Generate Report</button>
-            <button className="bg-red-600 text-white py-3 rounded-lg shadow hover:bg-red-700">Delete Records</button>
+            <button className="bg-purple-600 text-purple-600 py-3 rounded-lg shadow hover:bg-purple-700 hover:text-purple-700">Add classes</button>
+            <button className="bg-blue-600 text-blue-600 py-3 rounded-lg shadow hover:bg-blue-700 hover:text-blue-700">Export Data</button>
+            <button className="bg-green-600 text-green-600 py-3 rounded-lg shadow hover:bg-green-700 hover:text-green-700">Generate Report</button>
+            <button className="bg-red-600 text-red-600 py-3 rounded-lg shadow hover:bg-red-700 hover:text-red-700">Delete Records</button>
           </div>
 
           {/* <div className="bg-white p-6 rounded-lg shadow-md flex items-center gap-6">
