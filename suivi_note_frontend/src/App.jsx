@@ -10,6 +10,8 @@ import Studentlist from "./components/studentslist"
 import Addstudent from "./components/addstudent"
 import Editclasse from "./components/editclasse"
 import EditStudents from "./components/editstudents"
+import StudentDetail from "./components/studentdetail"
+import StudentCycleTablePage from "./components/studentcyclepage"
 
 
 
@@ -29,12 +31,13 @@ function App() {
             <Route index element={<Maindash />} />
             <Route path="profile" element={<Profile />} />
             <Route path="classes" element={<Classes />} />
-            <Route path="addclass" element={<Addclass />} />
-            <Route path="editclass/:id" element={<Editclasse />} />
+            <Route path="classes/addclass" element={<Addclass />} />
+            <Route path="classes/editclass/:id" element={<Editclasse />} />
             <Route path="studentlist/:id" element={<Studentlist />} /> 
             <Route path="addstudent/:classId" element={<Addstudent />} /> 
-            <Route path="editstudent/:id" element={<EditStudents />} />
-            <Route path="studenttable" />
+            <Route path="student/editstudent/:id" element={<EditStudents />} />
+            <Route path="student/studentdetail/:studentId" element={<StudentDetail/>} />
+            <Route path="student/studentdetail/:studentId/cycle/:cycleId" element={<StudentCycleTablePage />} />
             {/* <Route path="users" element={<Users />} /> */}
         </Route>
 

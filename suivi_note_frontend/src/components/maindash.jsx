@@ -25,7 +25,7 @@ function Maindash(){
             </div>
             {/* <div className="bg-white p-10 rounded-lg shadow-md"> */}
               {/* <p className="text-sm text-gray-500">les classes</p> */}
-              <button onClick={()=>{navigate("/dashboard/addclass")}} className="bg-green-600 text-white py-3 rounded-lg shadow hover:bg-green-700">Ajouter une classe</button>
+              <button onClick={()=>{navigate("/dashboard/classes/addclass")}} className="bg-green-600 text-white py-3 rounded-lg shadow hover:bg-green-700">Ajouter une classe</button>
               {/* <h2 className="text-3xl font-bold text-blue-600 mt-2">320</h2> */}
             {/* </div> */}
             {/* <div className="bg-white p-6 rounded-lg shadow-md"> */}

@@ -1,13 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateCellColor } from './studentSlice';
+import { updateCellColor } from '../features/studentSlice';
 
 function StudentCycleTable({ studentId, cycleId }) {
   const dispatch = useDispatch();
   const cycle = useSelector((state) =>
-    state.students.students
+    state.students.liste
       .find((s) => s.id === studentId)
       ?.cycles.find((c) => c.id === cycleId)
+  );
+
+  const student = useSelector((state) =>
+    state.students.liste.find((s) => s.id === parseInt(studentId))
   );
 
   if (!cycle) return <p>Cycle introuvable</p>;
@@ -18,6 +22,7 @@ function StudentCycleTable({ studentId, cycleId }) {
 
   return (
     <div>
+      <h1 className='text-3xl font-bold mb-6 text-blue-700' >{student.name}</h1>
       <h2>Score : {cycle.score} / 20</h2>
       <table className="border">
         <thead>

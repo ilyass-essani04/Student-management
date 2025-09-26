@@ -58,7 +58,7 @@ function Studentlist(){
                     ) : (
                 students.map((student)=>(
                     // const className = classes.find((cls) => cls.id === student.classId)?.name || "N/A";
-                <tr key={student.id} onClick={()=>{navigate(`dashboard/studenttable`)}} class="border-b hover:bg-orange-100 bg-gray-100 cursor-pointer">
+                <tr key={student.id} onClick={() => navigate(`/dashboard/student/studentdetail/${student.id}`)}  class="border-b hover:bg-orange-100 bg-gray-100 cursor-pointer">
                     <td class="p-3 px-5">
                         {student.name}
                     </td>
@@ -69,8 +69,16 @@ function Studentlist(){
                         20
                     </td>
                     <td class="p-3 px-5 flex justify-end">
-                        <button onClick={()=>{navigate(`/dashboard/editstudent/${student.id}`)}} type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">modifier</button>
-                        <button onClick={()=>{dispatch(RemoveStudent(student.id))}} type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">supprimer</button>
+                        <button onClick={(e)=>{
+                            e.stopPropagation();
+                            navigate(`/dashboard/student/editstudent/${student.id}`)
+                        }} type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">modifier
+                        </button>
+                        <button onClick={(e)=>{
+                            e.stopPropagation();
+                            dispatch(RemoveStudent(student.id))
+                        }} type="button" class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">supprimer
+                        </button>
                     </td>
                 </tr>
                 )))}
